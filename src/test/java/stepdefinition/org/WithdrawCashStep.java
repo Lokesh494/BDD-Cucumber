@@ -1,10 +1,13 @@
 package stepdefinition.org;
 
-import org.testng.Assert;
+
+
+import org.junit.Assert;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 import pojoclass.org.AccountDetails;
 
 public class WithdrawCashStep {
@@ -27,7 +30,7 @@ public class WithdrawCashStep {
 
 	@Then("${int} should be dispensed")
 	public void $_should_be_dispensed(int amount) {
-		Assert.assertEquals(actBalance - accountDetails.getBalance(), amount, "dispensed failed");
+		Assert.assertEquals("dispensed failed" , actBalance - accountDetails.getBalance(), amount );
 	}
 
 }

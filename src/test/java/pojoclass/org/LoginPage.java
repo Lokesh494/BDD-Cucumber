@@ -1,8 +1,11 @@
 package pojoclass.org;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
+
+
+
 
 public class LoginPage {
 
@@ -33,7 +36,7 @@ public class LoginPage {
 
 	public void verifyLoggedIn() {
 		boolean isLoggedIn = driver.findElement(By.xpath(headerXpath)).getText().equals("Products");
-		Assert.assertTrue(isLoggedIn, "Login");
+		Assert.assertTrue("Login", isLoggedIn);
 	}
 
 	public void clickLogoutBtn() throws InterruptedException {
@@ -44,12 +47,12 @@ public class LoginPage {
 
 	public void verifyLoggedOut() {
 		boolean isLoggedOut = driver.findElement(By.xpath(loginBtnXpath)).isDisplayed();
-		Assert.assertTrue(isLoggedOut, "Logout");
+		Assert.assertTrue("Logout", isLoggedOut);
 	}
 
 	public void verifyErrorMsg(String expErrorMsg) {
 		String actErrorMsg = driver.findElement(By.xpath(errorXpath)).getText().trim();
-		Assert.assertEquals(actErrorMsg, expErrorMsg);
+		Assert.assertEquals(expErrorMsg, actErrorMsg);
 	}
 
 }
